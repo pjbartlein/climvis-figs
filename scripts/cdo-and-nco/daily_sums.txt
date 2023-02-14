@@ -1,0 +1,8 @@
+https://iridl.ldeo.columbia.edu/dochelp/QA/Basic/dewpoint.html
+
+https://stackoverflow.com/questions/66877030/how-to-calculate-daily-average-from-era5-hourly-netcdf-data
+
+https://stackoverflow.com/questions/59815665/calculating-era5-daily-total-precipitation-using-cdo
+
+https://confluence.ecmwf.int/display/CKB/ERA5%3A+How+to+calculate+daily+total+precipitation
+

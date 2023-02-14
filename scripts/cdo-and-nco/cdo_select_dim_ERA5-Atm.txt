@@ -1,0 +1,4 @@
+ncks -O -d expver,0 ERA5_u500_monthly_197901-202012.nc temp.nc
+ncwa -O -a expver temp.nc temp1.nc
+ncks -O -x -v expver temp1.nc temp2.nc
+ncpdq -O temp2.nc ERA5_u500_monthly_197901-202012.nc

@@ -1,0 +1,6 @@
+cdo -b F64 divc,9.80665 geo_1279l4_0.1x0.1.grib2_v4_unpack.nc ERA5-Land_elev.nc 
+ncpdq -O ERA5-Land_elev.nc ERA5-Land_elev.nc
+ncrename -v z,elevation ERA5-Land_elev.nc
+ncatted -a long_name,elevation,o,c,"Elevation" ERA5-Land_elev.nc
+ncatted -a standard_name,elevation,o,c,"Elevation" ERA5-Land_elev.nc
+ncatted -a units,elevation,o,c,"m" ERA5-Land_elev.nc

@@ -1,0 +1,2 @@
+mogrify -gravity South -chop 0x215 *.png 
+mogrify -gravity North -chop 0x225 *.png 

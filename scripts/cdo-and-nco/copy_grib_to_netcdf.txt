@@ -1,0 +1,1 @@
+https://confluence.ecmwf.int/display/LDAS/Converting+from+grib+to+netCDF+with+cdo

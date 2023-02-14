@@ -1,0 +1,19 @@
+cdo zonmean ERA5_u_monthly_197901-202012.nc ERA5_u_monthly_197901-202012_zave.nc
+
+cdo selyear,1991/2020 ERA5_u_monthly_197901-202012.nc ERA5_u_monthly_199101-202012.nc
+cdo ymonmean ERA5_u_monthly_199101-202012.nc ERA5_u_monthly_199101-202012_ltm.nc
+
+cdo selyear,1991/2020 ERA5_v_monthly_197901-202012.nc ERA5_v_monthly_199101-202012.nc
+cdo ymonmean ERA5_v_monthly_199101-202012.nc ERA5_v_monthly_199101-202012_ltm.nc
+
+cdo selyear,1991/2020 ERA5_t_monthly_197901-202012.nc ERA5_t_monthly_199101-202012.nc
+cdo ymonmean ERA5_t_monthly_199101-202012.nc ERA5_t_monthly_199101-202012_ltm.nc
+
+cdo selyear,1991/2020 ERA5_z_monthly_197901-202012.nc ERA5_z_monthly_199101-202012.nc
+cdo ymonmean ERA5_z_monthly_199101-202012.nc ERA5_z_monthly_199101-202012_ltm.nc
+
+cdo selyear,1991/2020 ERA5_q_monthly_197901-202012.nc ERA5_q_monthly_199101-202012.nc
+cdo ymonmean ERA5_q_monthly_199101-202012.nc ERA5_q_monthly_199101-202012_ltm.nc
+
+cdo selyear,1991/2020 ERA5_w_monthly_197901-202012.nc ERA5_w_monthly_199101-202012.nc
+cdo ymonmean ERA5_w_monthly_199101-202012.nc ERA5_w_monthly_199101-202012_ltm.nc
