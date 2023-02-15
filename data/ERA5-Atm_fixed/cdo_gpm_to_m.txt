@@ -1,0 +1,6 @@
+cdo -b F64 divc,9.80665 ERA5_geopotential.nc ERA5_elev.nc 
+ncpdq -O ERA5_elev.nc ERA5_elev.nc
+ncrename -v z,elevation ERA5_elev.nc
+ncatted -a long_name,elevation,o,c,"Elevation" ERA5_elev.nc
+ncatted -a standard_name,elevation,o,c,"Elevation" ERA5_elev.nc
+ncatted -a units,elevation,o,c,"m" ERA5_elev.nc
