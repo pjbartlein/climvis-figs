@@ -1,0 +1,123 @@
+cdo -b F64 add ERA5_ssr_monthly_197901-202012.nc ERA5_str_monthly_197901-202012.nc ERA5_snr_monthly_197901-202012.nc 
+ncpdq -O ERA5_snr_monthly_197901-202012.nc ERA5_snr_monthly_197901-202012.nc 
+ncrename -v ssr,snr ERA5_snr_monthly_197901-202012.nc
+ncatted -a long_name,snr,o,c,"Surface Net Radiation" ERA5_snr_monthly_197901-202012.nc
+ncatted -a standard_name,snr,o,c,"surface_net_radiation" ERA5_snr_monthly_197901-202012.nc
+ 
+cdo -b F64 sub ERA5_ssr_monthly_197901-202012.nc ERA5_ssrd_monthly_197901-202012.nc ERA5_ssru_monthly_197901-202012.nc 
+ncpdq -O ERA5_ssru_monthly_197901-202012.nc ERA5_ssru_monthly_197901-202012.nc 
+ncrename -v ssr,ssru ERA5_ssru_monthly_197901-202012.nc
+ncatted -a long_name,ssru,o,c,"Surface Shortwave Radiation Upward" ERA5_ssru_monthly_197901-202012.nc
+ncatted -a standard_name,ssru,o,c,"surface_shortwave_radiation_upwards" ERA5_ssru_monthly_197901-202012.nc
+
+cdo -b F64 sub ERA5_str_monthly_197901-202012.nc ERA5_strd_monthly_197901-202012.nc ERA5_stru_monthly_197901-202012.nc 
+ncpdq -O ERA5_stru_monthly_197901-202012.nc ERA5_stru_monthly_197901-202012.nc 
+ncrename -v str,stru ERA5_stru_monthly_197901-202012.nc
+ncatted -a long_name,stru,o,c,"Surface Longwave Radiation Upward" ERA5_stru_monthly_197901-202012.nc
+ncatted -a standard_name,stru,o,c,"surface_longwave_radiation_upwards" ERA5_stru_monthly_197901-202012.nc
+
+cdo -b F64 add ERA5_slhf_monthly_197901-202012.nc ERA5_sshf_monthly_197901-202012.nc temp.nc
+cdo -b F64 add temp.nc ERA5_snr_monthly_197901-202012.nc ERA5_sghf_monthly_197901-202012.nc 
+ncpdq -O ERA5_sghf_monthly_197901-202012.nc ERA5_sghf_monthly_197901-202012.nc 
+ncrename -v slhf,sghf ERA5_sghf_monthly_197901-202012.nc
+ncatted -a long_name,sghf,o,c,"Surface substrate heat flux" ERA5_sghf_monthly_197901-202012.nc
+ncatted -a standard_name,sghf,o,c,"surface_substrate_heat_flux" ERA5_sghf_monthly_197901-202012.nc
+
+cdo -b F64 sub ERA5_ssr_monthly_197901-202012.nc ERA5_ssrd_monthly_197901-202012.nc temp.nc
+cdo -b F64 div temp.nc ERA5_ssrd_monthly_197901-202012.nc temp2
+cdo -b F64 mulc,-1.0 temp2.nc ERA5_albsfc_monthly_197901-202012.nc 
+ncpdq -O ERA5_albsfc_monthly_197901-202012.nc ERA5_albsfc_monthly_197901-202012.nc 
+ncrename -v ssr,albsfc ERA5_albsfc_monthly_197901-202012.nc
+ncatted -a long_name,albsfc,o,c,"Surface albedo (radiative)" ERA5_albsfc_monthly_197901-202012.nc
+ncatted -a standard_name,albsfc,o,c,"surface_albedo" ERA5_albsfc_monthly_197901-202012.nc
+
+cdo -b F64 add ERA5_tp_monthly_197901-202012.nc ERA5_e_monthly_197901-202012.nc temp.nc
+cdo -b F64 sub temp.nc ERA5_ro_monthly_197901-202012.nc ERA5_ds_monthly_197901-202012.nc
+ncpdq -O ERA5_ds_monthly_197901-202012.nc ERA5_ds_monthly_197901-202012.nc 
+ncrename -v tp,ds ERA5_ds_monthly_197901-202012.nc
+ncatted -a long_name,ds,o,c,"dS=P-E-R" ERA5_ds_monthly_197901-202012.nc
+ncatted -a standard_name,ds,o,c,"dS" ERA5_ds_monthly_197901-202012.nc
+
+cdo -b F64 add ERA5_tp_monthly_197901-202012.nc ERA5_e_monthly_197901-202012.nc ERA5_pme_monthly_197901-202012.nc
+ncpdq -O ERA5_pme_monthly_197901-202012.nc ERA5_pme_monthly_197901-202012.nc 
+ncrename -v tp,pme ERA5_pme_monthly_197901-202012.nc
+ncatted -a long_name,pme,o,c,"P-E" ERA5_pme_monthly_197901-202012.nc
+ncatted -a standard_name,pme,o,c,"pminuse" ERA5_pme_monthly_197901-202012.nc
+
+cdo -b F64 sub ERA5_tisr_monthly_197901-202012.nc ERA5_tsr_monthly_197901-202012.nc ERA5_tsru_monthly_197901-202012.nc
+ncpdq -O ERA5_tsru_monthly_197901-202012.nc ERA5_tsru_monthly_197901-202012.nc 
+ncrename -v tisr,tsru ERA5_tsru_monthly_197901-202012.nc
+ncatted -a long_name,tsru,o,c,"TOA Shortwave Radiation Upward" ERA5_tsru_monthly_197901-202012.nc
+ncatted -a standard_name,tsru,o,c,"toa_shortwave_radiation_upward" ERA5_tsru_monthly_197901-202012.nc
+
+cdo -b F64 sqr ERA5_u10_monthly_197901-202012.nc temp1.nc
+cdo -b F64 sqr ERA5_v10_monthly_197901-202012.nc temp2.nc
+cdo -b F64 add temp1.nc temp2.nc temp3.nc
+cdo -b F64 sqrt temp3.nc ERA5_vmag10_monthly_197901-202012.nc 
+ncpdq -O ERA5_vmag10_monthly_197901-202012.nc ERA5_vmag10_monthly_197901-202012.nc 
+ncrename -v u10,vmag10 ERA5_vmag10_monthly_197901-202012.nc
+ncatted -a long_name,vmag10,o,c,"10 m wind speed" ERA5_vmag10_monthly_197901-202012.nc
+ncatted -a standard_name,vmag10,o,c,"10_m_wind_speed" ERA5_vmag10_monthly_197901-202012.nc
+
+cdo -b F64 sqr ERA5_u300_monthly_197901-202012.nc temp1.nc
+cdo -b F64 sqr ERA5_v300_monthly_197901-202012.nc temp2.nc
+cdo -b F64 add temp1.nc temp2.nc temp3.nc
+cdo -b F64 sqrt temp3.nc ERA5_vmag300_monthly_197901-202012.nc 
+ncpdq -O ERA5_vmag300_monthly_197901-202012.nc ERA5_vmag300_monthly_197901-202012.nc 
+ncrename -v u,vmag300 ERA5_vmag300_monthly_197901-202012.nc
+ncatted -a long_name,vmag300,o,c,"300 hPa wind speed" ERA5_vmag300_monthly_197901-202012.nc
+ncatted -a standard_name,vmag300,o,c,"300_hPa_wind_speed" ERA5_vmag300_monthly_197901-202012.nc
+
+cdo -b F64 sqr ERA5_uq_monthly_197901-202012.nc temp1.nc
+cdo -b F64 sqr ERA5_vq_monthly_197901-202012.nc temp2.nc
+cdo -b F64 add temp1.nc temp2.nc temp3.nc
+cdo -b F64 sqrt temp3.nc ERA5_uqvq_vmag_monthly_197901-202012.nc 
+ncpdq -O ERA5_uqvq_vmag_monthly_197901-202012.nc ERA5_uqvq_vmag_monthly_197901-202012.nc 
+ncrename -v p71.162,uqvq_vmag ERA5_uqvq_vmag_monthly_197901-202012.nc
+ncatted -a long_name,uqvq_vmag,o,c,"vertically integrated moisture flux" ERA5_uqvq_vmag_monthly_197901-202012.nc
+ncatted -a standard_name,uqvq_vmag,o,c,"vertically_integrarted_moisture_flux" ERA5_uqvq_vmag_monthly_197901-202012.nc
+
+cdo -b F64 divc,86400 ERA5_vimd_monthly_197901-202012.nc ERA5_divmf_monthly_197901-202012.nc 
+ncpdq -O ERA5_divmf_monthly_197901-202012.nc ERA5_divmf_monthly_197901-202012.nc 
+ncrename -v vimd,divmf ERA5_divmf_monthly_197901-202012.nc
+ncatted -a long_name,divmf,o,c,"moisture flux divergence" ERA5_divmf_monthly_197901-202012.nc
+ncatted -a standard_name,divmf,o,c,"moisture_flux_divergence" ERA5_divmf_monthly_197901-202012.nc
+ncatted -a units,divmf,o,c,"kg m-1 s-1" ERA5_divmf_monthly_197901-202012.nc
+
+# rainfall rate
+cdo -b F64 sub ERA5_tp_monthly_197901-202012.nc ERA5_sf_monthly_197901-202012.nc ERA5_rr_monthly_197901-202012.nc
+ncpdq -O ERA5_rr_monthly_197901-202012.nc ERA5_rr_monthly_197901-202012.nc 
+ncrename -v tp,rr ERA5_rr_monthly_197901-202012.nc
+ncatted -a long_name,rr,o,c,"Rainfall rate" ERA5_rr_monthly_197901-202012.nc
+ncatted -a standard_name,rr,o,c,"rainfall_rate" ERA5_rr_monthly_197901-202012.nc
+cdo expr,'rr=rr>0.000003' ERA5_rr_monthly_197901-202012.nc temp1.nc
+cdo -b F64 mul temp1.nc ERA5_rr_monthly_197901-202012.nc temp2.nc
+ncpdq -O temp2.nc ERA5_rr_monthly_197901-202012.nc 
+
+# ds2 rain + melt - eval - runoff
+cdo -b F64 add ERA5_rr_monthly_197901-202012.nc ERA5_smlt_monthly_197901-202012.nc temp1.nc
+cdo -b F64 add temp1.nc ERA5_e_monthly_197901-202012.nc temp2.nc
+cdo -b F64 sub temp2.nc ERA5_ro_monthly_197901-202012.nc ERA5_ds2_monthly_197901-202012.nc
+ncpdq -O ERA5_ds2_monthly_197901-202012.nc ERA5_ds2_monthly_197901-202012.nc 
+ncrename -v rr,ds ERA5_ds2_monthly_197901-202012.nc
+ncatted -a long_name,ds,o,c,"dS=RR+M-E-RO" ERA5_ds2_monthly_197901-202012.nc
+ncatted -a standard_name,ds,o,c,"dS=RR+M-E-RO" ERA5_ds2_monthly_197901-202012.nc
+
+# t2m - skt
+cdo -b F64 sub ERA5_t2m_monthly_197901-202012.nc ERA5_skt_monthly_197901-202012.nc ERA5_t2m-skt_monthly_197901-202012.nc 
+ncpdq -O ERA5_t2m-skt_monthly_197901-202012.nc ERA5_t2m-skt_monthly_197901-202012.nc 
+ncrename -v t2m,t2m-skt ERA5_t2m-skt_monthly_197901-202012.nc
+ncatted -a long_name,t2m-skt,o,c,"2m Air Temp - Skin Temp" ERA5_t2m-skt_monthly_197901-202012.nc
+ncatted -a standard_name,t2m-skt,o,c,"T2m-TS" ERA5_t2m-skt_monthly_197901-202012.nc
+
+
+
+add Add two fields
+cdo add infile1 infile2 outfile
+o(t, x) = i1(t, x) + i2(t, x)
+sub Subtract two fields
+cdo sub infile1 infile2 outfile
+o(t, x) = i1(t, x) − i2(t, x)
+div Divide two fields
+cdo div infile1 infile2 outfile
+o(t, x) = i1(t, x) / i2(t, x)
