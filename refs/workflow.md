@@ -126,9 +126,9 @@ In the `*_config.txt` file, line 1, the reference to the file of filenames shoul
 
 In the file of filenames, the individual file names should be change to reference the files in the `/png` subfolder, e.g.
 
-### Copy the files to `pages.uoregon.edu/climvis/private_html/content/' ###
+### Copy the files to the server ###
 
-Copy the files to the server.  If using FileZilla, the following Site Manager information should work:
+Copy the files to the server (i.e, to `pages.uoregon.edu/climvis/private_html/content/`).  If using FileZilla, the following Site Manager information should work:
 
 	Protocol: SFTP - SSH File Transfer Protocol
 	Host: sftp.uoreogn.edu
@@ -144,5 +144,42 @@ In a browser, enter the URL `https://pages.uoregon.edu/climvis/content/anim/ltm/
 
 ## Web site ##
 
-The next step adding or updating animations or plots is to work on the website.
+The next step in adding or updating animations or plots is to work on the website.  The website is built in R Studio using R Markdown, using a "Bootstrap theme" to implement the dropdown menus and overall design of the page.  See [[https://bookdown.org/yihui/rmarkdown/]](https://bookdown.org/yihui/rmarkdown/).  In addition to a few support files that don't change often, the individual pages on the website are built from a Markdown file (e.g. `animations.md`) that contains text and links to the the animation `.html` file (e.g. 'skt_globe_1991-2020_ltm.html`) and a related R Markdown file (e.g. `animations.Rmd`) that refers to the Markdown file, and is "knitted" in R Studio to create an `.html` file that can be copied to the website, and also to update the structure of the website.
+
+### Markdown files ###
+
+Markdown files are just text files with some very simple formatting tags embedded (e.g. \*a word or phrase\* gets rendered as *a word or phrase*, or \** subhead \** gets rendered as **subhead**). Links to `.html` files on a server are constructed like this: \[[climvis.org]](https://climvis.org), and when rendered appear as [[climvis.org]](https://climvis.org). The outer pair of square brackets delimits the link that appears on a page (and the inner pair appears as part of the link), while the parentheses delimit the URL.
+
+"Rendering" is done by a Markdown conversion program, which reads the text file and converts it to an `.html` file (or `.pdf`, `.docx`, etc.). See [https://www.markdownguide.org/](https://www.markdownguide.org/).
+
+So Markdown files can be constructed in a text editor, or in the editor in R Studio.  In practice, it's easiest to use a dual-pane dedicated Markdown editor that provides a live preview.  Examples are:
+- [[MultiMarkdownComposer]](https://multimarkdown.com/), macOS, get from Mac .app store, probably the best one for the Mac;
+- [[Macdown]](https://macdown.uranusjr.com/), macOS, free, but has an annoying tendency to "flicker" when one is typing; and
+- [[MarkdownPad 2]](http://markdownpad.com/news/2013/introducing-markdownpad-2/), the best one for Windows.
+
+All three editors have a built-in Markdown rendering program, and can use a custom `.css` file to format the html a particular way (e.g. fonts and font-sizes, width of page, etc.).  The `.css` file used here is `page_01.css` which is one of the support files that gets uploaded to the server.
+
+### Adding a new animation or image (editing a Markdown file)###
+
+The two new animations can be added to the Animations page by using a Markdown editor (or text editor), and adding two links. The temperature section of the `animations.md` would then look like this:
+
+	**Temperature**  
+	
+	[[2m air temperature]](../content/anim/ltm/globe/t2m_globe_1991-2020_ltm/t2m_globe_1991-2020_ltm.html) 
+	[[2m air temperature (polar)]](../content/anim/ltm/polar/t2m_polar_1991-2020_ltm/t2m_polar_1991-2020_ltm.html)
+	[[Surface net radiation & 2m air temp]](../content/anim/ltm/globe/t2m_snr_globe_1991-2020_ltm/t2m_snr_globe_1991-2020_ltm.html)  
+	[[Skin temperature]](../content/anim/ltm/globe/skt_globe_1991-2020_ltm/skt_globe_1991-2020_ltm.html)
+	[[2m air temperature - Skin temperature]](../content/anim/ltm/globe/t2m-skt_globe_1991-2020_ltm/t2m-skt_globe_1991-2020_ltm.html)
+
+Save the edited Markdown file as usual.
+
+### Rendering the Markdown file and updating the website ###
+
+The next step is to render the Markdown file in R Studio, turning it into an `.html` file that can be uploaded to the website.  Here are the steps:  
+1. Open R Studio in the `climvis.org` folder--this can conveniently be done by double-clicking on the `clmvis.org.Rproj` project file.  
+2. Open the associated R Markdown file, i.e. `animations.Rmd` for rendering the `animations.md` file just made above.  The R Markdown file contains some header information, plus a reference to the Markdown file `(```{r child="animations.md"}`).  
+3. "knit" (render) the file by clicking on the `Knit` button in R Studio.  It might take a few seconds for the preview image of the rendered `.html` file to appear.  
+4. As currently set up, this will create the file `animations.html` in the `/climvis.org/docs/` folder.  
+5. Copy the `.html` file to `pages.uoregon.edu/climvis/private_html/`.  
+6. Update the GitHub repository by committing and pushing the changed file.
 
