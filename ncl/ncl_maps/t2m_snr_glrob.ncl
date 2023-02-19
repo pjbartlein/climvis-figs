@@ -5,8 +5,8 @@ mapvar0 = "snr"
 ncvar0 = "snr"
 mapvar2 = "t2m"
 ncvar2 = "t2m"
-data_path = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/data/ERA5-Atm/ltm_monthly/"
-map_path = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/maps/globe/" + mapfile + "/png/"
+data_path = "../../data/ERA5-Atm/ltm_monthly/"
+map_path = "../../content/anim/ltm/globe/" + mapfile + "/png/"
 title_0 = "Net Radiative Components"
 title_00 = "Surface Net Shortwave Radiation (Wm~S~-2~N~)"
 title_02 = "2 m Air Temperature (~S~o~N~C~N~)"
@@ -17,11 +17,11 @@ infile0 = "ERA5_" + mapvar0 + "_monthly_199101-202012_ltm.nc"
 infile2 = "ERA5_" + mapvar2 + "_monthly_199101-202012_ltm.nc"
 
 ; shapefiles
-land_dir = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/shp_files/"
+land_dir = "../../shp_files/"
 land_file = "ERA5-Atm_land.shp"
 land_shp = land_dir + land_file
 print(land_shp)
-country_dir = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/shp_files/ne_110m_admin_0_countries/"
+country_dir = "../../shp_files/ne_110m_admin_0_countries/"
 country_file = "ne_110m_admin_0_countries.shp"
 country_shp = country_dir + country_file
 print(country_shp)

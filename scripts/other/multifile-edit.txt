@@ -1,0 +1,3 @@
+find . -name '*.ncl' -print0 | xargs -0 sed -i "" "s?/Users/bartlein/Dropbox/WorkCurrent/ERA5/?../../?g"
+
+find . -name '*.ncl' -print0 | xargs -0 sed -i "" "s?../../maps/?../../content/anim/ltm/?g"

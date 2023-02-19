@@ -9,8 +9,8 @@ mapvar2 = "sf"
 ncvar2 = "sf"
 mapvar3 = "sd"
 ncvar3 = "sd"
-data_path = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/data/ERA5-Atm/ltm_monthly/"
-map_path = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/maps/polar/" + mapfile + "/png/"
+data_path = "../../data/ERA5-Atm/ltm_monthly/"
+map_path = "../../content/anim/ltm/polar/" + mapfile + "/png/"
 title_0 = "Rain and Snow"
 title_00 = "Precipitation Rate (mm  d~S~-1~N~)"
 title_01 = "Rainfall Rate (mm  d~S~-1~N~)"
@@ -25,19 +25,19 @@ infile2 = "ERA5_" + mapvar2 + "_monthly_199101-202012_ltm.nc"
 infile3 = "ERA5_" + mapvar3 + "_monthly_199101-202012_ltm.nc"
 
 ; shapefiles
-land_dir = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/shp_files/"
+land_dir = "../../shp_files/"
 land_file = "ERA5-Atm_land.shp"
 land_shp = land_dir + land_file
 print(land_shp)
-country_dir = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/shp_files/ne_110m_admin_0_countries/"
+country_dir = "../../shp_files/ne_110m_admin_0_countries/"
 country_file = "ne_110m_admin_0_countries.shp"
 country_shp = country_dir + country_file
 print(country_shp)
-grat30_dir = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/shp_files/grat30_nopole/"
+grat30_dir = "../../shp_files/grat30_nopole/"
 grat30_file = "grat30_nopole.shp"
 grat30_shp = grat30_dir + grat30_file
 print(grat30_shp)
-equator_dir = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/shp_files/equator/"
+equator_dir = "../../shp_files/equator/"
 equator_file = "equator.shp"
 equator_shp = equator_dir + equator_file
 print(equator_shp)

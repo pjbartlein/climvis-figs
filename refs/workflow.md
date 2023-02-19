@@ -1,4 +1,4 @@
-## Workflow for making an animation ##
+# Workflow for making an animation #
 
 Example:  Make animations of skin temperature (T<sub>s</sub>) and of 2-m air temperature - skin temperature (T2m - T<sub>s</sub>)
 
@@ -20,9 +20,13 @@ Overall steps:
 8. copy the `/png` folder and HAniS support files to `sftp.uoregon.edu/climvis/public_html/content/anim/ltm/globe/varname/` using FileZilla or by mounting the folder on the server (user: `climvis` password: `GCA_2023_Sedge`)
 9. test by loading `https://climvis.org/global/varname/varname.html`
 
+*Some debugging of the following will be necessary.*
+
+## Data ##
+
 ### Download data ###
 
-Before downloading data, you'll need to get an account.  The first time through, the web page should prompt you to set one up.
+Before downloading data, you'll need to get an CDS account.  The first time through, the web page should prompt you to set one up.
 
 Here's the URL for the ERA5 monthly-averaged data on single levels:  [[https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-single-levels-monthly-means?tab=overview]](https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-single-levels-monthly-means?tab=overview).
 
@@ -59,6 +63,79 @@ Get a new variable, in this case the 2m air temperature minus the skin temperatu
 	ncatted -a long_name,t2m-skt,o,c,"2m Air Temp - Skin Temp" ERA5_t2m-skt_monthly_197901-202012.nc
 	ncatted -a standard_name,t2m-skt,o,c,"T2m-TS" ERA5_t2m-skt_monthly_197901-202012.nc
 
-The first line subtracts `skt` from `t2m`, the second line repacks the difference, the third line renames `t2m` which got propagated to the difference file to `t2m-skt`, and the fourth and fifth lines add new long and standard names.  Next, get the long-term means and anomalies of `t2m-skt` as above.
+The first line subtracts `skt` from `t2m`, the second line repacks the difference, the third line renames `t2m` which got propagated to the difference file to `t2m-skt`, and the fourth and fifth lines add new long and standard names for `t2m-skt`.  Next, get the long-term means and anomalies of `t2m-skt` as above.
 
+## Maps ##
 
+### Create folder(s) in `/content` ###
+
+The animations consist of a folder of `.png` files, and three HAniS control files. Create the following folders and subfolders, e.g. for `skt`: `../climvis-figs/content/anim/ltm/globe/skt_globe_1991-2020_ltm/png`, and create a similar one for `t2m-skt`.
+
+### Edit an NCL file ###
+
+Most of the time, an existing NCL script can be edited to create the maps for a new variable.  For example, to plot `skt`, it's possible to simply edit the NCL script for `t2m`: `t2m_glrob.ncl` (Note: `glrob` stands for a map of the globe using the Robinson projection.  Because only the file and variable names will differ (the same color scale will be used), only line 3 and line 6 in the following would need to be changed. (Note that the line numbers are not part of the file.)
+
+	01: ; 1-up plot of a scalar variable
+	02:
+	03: mapvar = "skt"
+	04: data_path = "../../data/ERA5-Atm/ltm_monthly/"
+	05: map_path = "../../maps/global/" + mapvar + "_globe_1991-2020_ltm/png/"
+	06: title_0 = "Skin Temperature (~S~o~N~C~N~)"
+	07: title_2 = "Data: ERA5 Reanalysis"
+	08: title_3 = "1991-2020 Long-Term Mean"
+	09: ...
+	
+Line 44 in this file could also be changed from the comment `; 2m air temperature` to `; skin temperature`
+
+For plotting `t2m-skt`, the same color scale will be used, but different outpoints will need to be specified.  (See below for color-scale selection.). Two additional sections of code will need to be changed:
+
+	33: plotvar = plotvar
+
+(removing the `- 273.15` that converted the input `t2m` data from Kelvin to deg C), and
+
+	44: ; 2m - skin temperature difference
+	45: level0 = new((/ 15 /), float)
+	46: level0 = (/-10, -5, -2, -1, -0.5, -0.2, -0.1, 0, 0.1, 0.2, 0.5, 1, 2, 5, 10 /)
+	47: level0_begclr = 238
+	48: level0_endclr = 253
+
+Only line 44 and 46 were changed in this code chunk, to change the comment and to specify a pseudo-logarithmic scale.  There are 15 cutpoints, and 16 colors (numbers 238 through 253) specified here. (The old outpoints for `t2m`were `level0 = (/-35, -30, -25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35 /)`)
+
+### Run the NCL file ###
+
+If you're using SublimeText on a Mac, typing cmd-b will save and run the file.  Otherwise, save the file, open a command window in the `../climvis-figs/ncl/ncl_maps/` folder, and type for example, `ncl skt_glrob.ncl`.
+
+### Trim the `.png` files ###
+
+NCL plots things into a square "viewport", which would leave a lot of white space around the maps.  This can be trimmed (chopped) using the ImageMagick `mogrify` command (see `../climvis-figs/scripts/imagemagick/` for scripts for other map types.  Open a command window in a `/png` folder (e.g. `../climvis-figs/content/anim/ltm/globe/t2m-skt_globe_1991-2020_ltm/png`) and copy in the following:
+
+	mogrify -gravity South -chop 0x260 *.png 
+	mogrify -gravity North -chop 0x220 *.png
+
+(This takes a few seconds, and the command prompt may come back before all of the file are done.)
+
+### Edit the HAniS support files ###
+
+There are three text files that HAniS uses to serve the `.pngs` as an animation, and `.html` file that is displayed in the browser, a configuration file, `*_config.txt`, and a list of files that make up the animation, `*_files.txt`.  Copy these from an existing variable's folder into, e.g. `../climvis-figs/content/anim/ltm/globe/skt_globe_1991-2020_ltm` and rename them appropriately, e.g. to `skt_globe_1991-2020_ltm.html`.
+
+In the `.html` file, line 6, the title, and line 20, the reference to the configuration file should be changed to e.g. `<title>ERA5 Skin Temperature 1991-2020</title>` and `onload="HAniS.setup('skt_globe_1991-2020_ltm_config.txt','handiv')">`k respectively..
+
+In the `*_config.txt` file, line 1, the reference to the file of filenames should be changed to e.g. `file_of_filenames = skt_globe_1991-2020_ltm_files.txt`.
+
+In the file of filenames, the individual file names should be change to reference the files in the `/png` subfolder, e.g.
+
+### Copy the files to `pages.uoregon.edu/climvis/private_html/content/' ###
+
+Copy the files to the server.  If using FileZilla, the following Site Manager information should work:
+
+	Protocol: SFTP - SSH File Transfer Protocol
+	Host: sftp.uoreogn.edu
+	Logon Type: Normal
+	User: climvis
+	Password: GCA_2023_Sedge
+
+Browse to the folder `/home2/climvis/public_html/content/anim/ltm/globe` and copy the folder `../climvis-figs/content/anim/ltm/globe/skt_globe_1991-2020_ltm/` to the server.
+
+### Test the animation ###
+
+In a browser, enter the URL `https://pages.uoregon.edu/climvis/content/anim/ltm/globe/skt_globe_1991-2020_ltm/` and click on the `skt_globe_1991-2020_ltm.html` link.

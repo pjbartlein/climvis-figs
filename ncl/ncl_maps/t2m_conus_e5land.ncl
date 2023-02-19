@@ -2,8 +2,8 @@
 
 mapvar = "t2m"
 filename = "_conus_1991-2020_ltm"
-data_path = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/data/ERA5-Land/ltm_monthly/"
-map_path = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/maps/conus/" + mapvar + filename + "/png/"
+data_path = "../../data/ERA5-Land/ltm_monthly/"
+map_path = "../../content/anim/ltm/conus/" + mapvar + filename + "/png/"
 title_0 = "2 m Air Temperature (~S~o~N~C~N~)"
 title_2 = "Data: ERA5-Land Reanalysis"
 title_3 = "1991-2020 Long-Term Mean"
@@ -11,19 +11,19 @@ title_3 = "1991-2020 Long-Term Mean"
 infile = "ERA5-Land_" + mapvar + "_monthly_1991-2020_ltm.nc"
 
 ; shapefiles
-land_dir = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/shp_files/ne_50m_coastline/"
+land_dir = "../../shp_files/ne_50m_coastline/"
 land_file = "ne_50m_coastline.shp"
 land_shp = land_dir + land_file
 print(land_shp)
-country_dir = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/shp_files/ne_50m_admin_0_countries/"
+country_dir = "../../shp_files/ne_50m_admin_0_countries/"
 country_file = "ne_50m_admin_0_countries.shp"
 country_shp = country_dir + country_file
 print(country_shp)
-province_dir = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/shp_files/ne_50m_admin_1_states_provinces/"
+province_dir = "../../shp_files/ne_50m_admin_1_states_provinces/"
 province_file = "ne_50m_admin_1_states_provinces.shp"
 province_shp = province_dir + province_file
 print(province_shp)
-lakes_dir = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/shp_files/ne_50m_lakes/"
+lakes_dir = "../../shp_files/ne_50m_lakes/"
 lakes_file = "ne_50m_lakes.shp"
 lakes_shp = lakes_dir + lakes_file
 print(lakes_shp)

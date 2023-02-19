@@ -4,9 +4,9 @@ mapfile = "t_q_xsect2_1991-2020_ltm"
 
 ncvar1 = "t"
 ncvar2 = "q"
-data_path = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/data/ERA5-Atm/ltm_monthly_4D/"
-data_path1 = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/data/ERA5-Atm/ltm_monthly/"
-map_path = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/maps/xsect/" + mapfile + "/png/"
+data_path = "../../data/ERA5-Atm/ltm_monthly_4D/"
+data_path1 = "../../data/ERA5-Atm/ltm_monthly/"
+map_path = "../../content/anim/ltm/xsect/" + mapfile + "/png/"
 
 title_0 = "Air Temperature (~S~o~N~C~N~)"
 title_1 = "Specific Humidity (kg kg~S~-1~N~)"

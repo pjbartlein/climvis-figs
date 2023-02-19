@@ -3,8 +3,8 @@
 map_file = "ERA5-Land_elev_namer"
 ncvar = "elevation"
 mapvar = "elevation"
-data_path = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/data/ERA5-Land/fixed/"
-map_path = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/maps/namer/"
+data_path = "../../data/ERA5-Land/fixed/"
+map_path = "../../content/anim/ltm/namer/"
 title_0 = "Elevation (m)"
 title_2 = "Data: ERA5-Land Reanalysis"
 title_3 = "1991-2020 Long-Term Mean"
@@ -13,19 +13,19 @@ infile = "ERA5-Land_elev.nc"
 maskfile = "ERA5-Land_lsm.nc"
 
 ; shapefiles
-land_dir = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/shp_files/ne_50m_coastline/"
+land_dir = "../../shp_files/ne_50m_coastline/"
 land_file = "ne_50m_coastline.shp"
 land_shp = land_dir + land_file
 print(land_shp)
-country_dir = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/shp_files/ne_50m_admin_0_countries/"
+country_dir = "../../shp_files/ne_50m_admin_0_countries/"
 country_file = "ne_50m_admin_0_countries.shp"
 country_shp = country_dir + country_file
 print(country_shp)
-province_dir = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/shp_files/ne_50m_admin_1_states_provinces/"
+province_dir = "../../shp_files/ne_50m_admin_1_states_provinces/"
 province_file = "ne_50m_admin_1_states_provinces.shp"
 province_shp = province_dir + province_file
 print(province_shp)
-lakes_dir = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/shp_files/ne_50m_lakes/"
+lakes_dir = "../../shp_files/ne_50m_lakes/"
 lakes_file = "ne_50m_lakes.shp"
 lakes_shp = lakes_dir + lakes_file
 print(lakes_shp)
