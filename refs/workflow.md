@@ -17,8 +17,10 @@ Overall steps:
 5. edit and run an ncl script to make the maps
 6. use the ImageMagick `mogrify` command-line tool to trim whitespace from the maps.  (NCL always writes to a square page.)
 7. edit the three HAniS support files: `varname.html`, `varname_config.txt`, and `varname_files.txt'.
-8. copy the `/png` folder and HAniS support files to `sftp.uoregon.edu/climvis/public_html/content/anim/ltm/globe/varname/` using FileZilla or by mounting the folder on the server (user: `climvis` password: `GCA_2023_Sedge`)
+8. copy the `/png` folder and HAniS support files to `sftp.uoregon.edu/climvis/public_html/content/anim/ltm/globe/varname/...` using FileZilla or by mounting the folder on the server (user: `climvis` password: `GCA_2023_Sedge`)
 9. test by loading `https://climvis.org/global/varname/varname.html`
+10. Editing the appropriate Markdown file (e.g. `animations.md`) and "knitting" it to `.html' in R Studio via an R Markdown file  (e.g. `annimations.Rmd`) (Or, when major changes are made, rebuilding the web site in R Studio.)
+11. copy the updated/rebuilt website `.html` and support files to the server.
 
 *Some debugging of the following will be necessary.*
 
@@ -139,3 +141,8 @@ Browse to the folder `/home2/climvis/public_html/content/anim/ltm/globe` and cop
 ### Test the animation ###
 
 In a browser, enter the URL `https://pages.uoregon.edu/climvis/content/anim/ltm/globe/skt_globe_1991-2020_ltm/` and click on the `skt_globe_1991-2020_ltm.html` link.
+
+## Web site ##
+
+The next step adding or updating animations or plots is to work on the website.
+
