@@ -83,7 +83,7 @@ Homebrew might ask you to run the following commands after installation is compl
 
 The path (displayed by typing `echo $PATH`) should look like: 
 
-9/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/ncl-6.6.2/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/ncl-6.6.2/bin
+>/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/ncl-6.6.2/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/ncl-6.6.2/bin
 
 If already installed, update Homebrew  (see [https://github.com/Homebrew/brew/blob/master/docs/FAQ.md](https://github.com/Homebrew/brew/blob/master/docs/FAQ.md)): 
 
@@ -93,7 +93,7 @@ If already installed, update Homebrew  (see [https://github.com/Homebrew/brew/bl
 	
 ### Install netCDF ###
 
-See [https://formulae.brew.sh/formula/netcdf](https://formulae.brew.sh/formula/netcdf).  At the time of this writing, the current version was `4.8.0` (10 Sep 2021).
+See [https://formulae.brew.sh/formula/netcdf](https://formulae.brew.sh/formula/netcdf).  At the time of this writing, the current version was `4.9.0` (21 Feb 2023).
 
 	brew install netcdf
  
@@ -127,7 +127,7 @@ Make the file executable:
 
 	sudo chmod +x ncd
 	
-Then typing, e.g. `ncd myfile.nc` in a Terminal window will `ncdump` the headers (attributes, etc.) and coordinate variable information.
+Then typing, e.g. `ncd myfile.nc` in a Terminal window will `ncdump` the headers (attributes, etc.) and coordinate variable information (lon, lat, time).
 
 ### CDO ###
 
@@ -157,6 +157,9 @@ Check the installation (note that there are two hyphens before "version"):
 
 	ncatted --version 
 
+Note the double hyphen, and that it's one of the individuals command-line tools in NCO that is being queried for its version number.  NCO can be updated as follows:
+
+	brew update eco
 
 
     
