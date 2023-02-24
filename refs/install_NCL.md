@@ -15,7 +15,7 @@ See: [https://www.ncl.ucar.edu/Download/install\_from\_binary.shtml](https://www
 
 ### Extract files
 
-On recent versions of macOS, making a destination folder for the binary e.g. `/usr/local/ncl-6.6.2` may fail if attempted in a Terminal window (owing to the System Integrity Protection (SIP) thing in macOS), producing the following error:  `mkdir: /usr/local/ncl-6.6.2: Permission denied`.
+Create a new folder: `/usr/local/ncl-6.6.2` by opening a Terminal window and entering `mkdir: /usr/local/ncl-6.6.2`. On recent versions of macOS, making a destination folder for the binary may fail if attempted in a Terminal window (owing to the System Integrity Protection (SIP) thing in macOS), producing the following error:  `mkdir: /usr/local/ncl-6.6.2: Permission denied`.
 
 The workaround is to use Finder to create the folder `/usr/local/ncl-6.6.2`, which will require authentication, and then do this (copy and paste to a Terminal window):
 
