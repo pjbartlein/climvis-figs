@@ -15,12 +15,17 @@ See: [https://www.ncl.ucar.edu/Download/install\_from\_binary.shtml](https://www
 
 ### Extract files
 
-Create a new folder: `/usr/local/ncl-6.6.2` by opening a Terminal window and entering `mkdir: /usr/local/ncl-6.6.2`. On recent versions of macOS, making a destination folder for the binary may fail if attempted in a Terminal window (owing to the System Integrity Protection (SIP) thing in macOS), producing the following error:  `mkdir: /usr/local/ncl-6.6.2: Permission denied`.
+Create a new folder: `/usr/local/ncl-6.6.2` by opening a Terminal window and entering `mkdir /usr/local/ncl-6.6.2`. On recent versions of macOS, making a destination folder for the binary may fail if attempted in a Terminal window (owing to the System Integrity Protection (SIP) thing in macOS), producing the following error:  `mkdir: /usr/local/ncl-6.6.2: Permission denied`.
 
 The workaround is to use Finder to create the folder `/usr/local/ncl-6.6.2`, which will require authentication, and then do this (copy and paste to a Terminal window):
 
 	cd /usr/local
 	sudo chown -R $(whoami):staff *
+
+Note: Finder can be made to show hidden files files and folders by typing in a Terminal window:
+
+	defaults write com.apple.finder AppleShowAllFiles TRUE
+	killall Finder
 
 The NCL page indicates that the following approach will work for installing NCL:
 
