@@ -20,7 +20,7 @@ country_shp = country_dir + country_file
 print(country_shp)
 
 ; set color scale
-clr_map = "ClimA7"
+clr_map = "ClimA8"
 
 nm = 12
 months = (/"Jan", "Feb", "Mar", "Apr","May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov","Dec" /)

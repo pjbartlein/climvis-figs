@@ -20,7 +20,7 @@ country_shp = country_dir + country_file
 print(country_shp)
 
 ; set color scale
-clr_map = "ClimA7"
+clr_map = "ClimA8"
 
 nm = 12
 months = (/"Jan", "Feb", "Mar", "Apr","May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov","Dec" /)
@@ -145,7 +145,7 @@ do m = 0,nm-1
     wks_type@wkHeight = 1200
 
     monthstring  = sprinti("%0.2i", m+1)
-    mapfile = mapvar + "_gl_" + monthstring
+    mapfile = mapvar + "_globe_1991-2020_ltm_" + monthstring
     wks  = gsn_open_wks (wks_type, map_path + mapfile)
     gsn_define_colormap(wks,clr_map)
     ; drawNDCGrid(wks)                   ; Draw an NDC grid for reference

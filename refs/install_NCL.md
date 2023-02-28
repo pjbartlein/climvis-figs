@@ -167,7 +167,16 @@ Note the double hyphen, and that it's one of the individuals command-line tools 
 	brew update eco
 
 
-    
+### Panoply ###
+
+Panoply is a handy viewer for netCDF files (and also a good check that a new file conforms to common standards like the Climate Forecast (CF) standards).  It can be downloaded from:
+
+	<https://www.giss.nasa.gov/tools/panoply/>
+
+If Panoply pops up a dialog saying that a Java environment must be installed, one can be obtained at Oracle. Here are the instructions, and the download page (as of 26 Feb 2023):
+
+	<https://docs.oracle.com/en/java/javase/11/install/installation-jdk-macos.html>
+	<https://www.oracle.com/java/technologies/downloads/#jdk19-mac>
 
 
 `
