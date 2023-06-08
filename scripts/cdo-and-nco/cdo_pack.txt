@@ -1,0 +1,6 @@
+cdo pack ERA5_vpd_monthly_197901-202012_flt.nc ERA5_vpd_monthly_197901-202012.nc
+cdo pack ERA5_rh_monthly_197901-202012_flt.nc ERA5_rh_monthly_197901-202012.nc
+
+cdo pack ERA5_vpd_monthly_199101-202012_ltm_flt.nc ERA5_vpd_monthly_199101-202012_ltm.nc
+cdo pack ERA5_rh_monthly_199101-202012_ltm_flt.nc ERA5_rh_monthly_199101-202012_ltm.nc
+
