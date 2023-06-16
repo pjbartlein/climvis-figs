@@ -14,7 +14,7 @@ begin
     print("   tasfile: "+tasfile)
 
     ; output files
-    outfile = inpath + "ERA5_rh_monthly_197901-202012.nc"
+    outfile = inpath + "ERA5_rh_monthly_197901-202012_flt.nc"
     print("   outfile: "+outfile)
 
     dewpt_in   = addfile(dewptfile, "r" )
