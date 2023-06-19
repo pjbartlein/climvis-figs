@@ -1,8 +1,9 @@
 ; relative humidity
+; pack variable when finished 
 
 begin 
 
-    inpath = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/climvis-figs/data/ERA5-Atm/monthly/"
+    inpath = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/Data/ERA5-Atm/monthly/"
     outpath = inpath
     print("    inpath: "+inpath)
     print("   outpath: "+outpath)
@@ -19,11 +20,11 @@ begin
 
     dewpt_in   = addfile(dewptfile, "r" )
 
-    lon   = dewpt_in->longitude  
-    lat   = dewpt_in->latitude  
+    longitude   = dewpt_in->longitude  
+    latitude   = dewpt_in->latitude  
     time  = dewpt_in->time 
-    printVarSummary(lon)
-    printVarSummary(lat)
+    printVarSummary(longitude)
+    printVarSummary(latitude)
     printVarSummary(time)
 
     dewpt = short2flt(dewpt_in->d2m)
@@ -83,20 +84,20 @@ begin
 
     filedimdef(fout,vout_dimNames,vout_dimSizes,dimUnlim) 
     filevardef(fout, "time", typeof(time), getvardims(time))
-    filevardef(fout, "lat", typeof(lat), getvardims(lat))
-    filevardef(fout, "lon", typeof(lon), getvardims(lon))
+    filevardef(fout, "latitude", typeof(latitude), getvardims(latitude))
+    filevardef(fout, "longitude", typeof(longitude), getvardims(longitude))
     filevardef(fout, "rh", typeof(vout), getvardims(vout))
     setfileoption(fout,"DefineMode",True)
 
     ; variable attributes
     filevarattdef(fout,"time",time)
-    filevarattdef(fout,"lat",lat)
-    filevarattdef(fout,"lon",lon)
+    filevarattdef(fout,"latitude",latitude)
+    filevarattdef(fout,"longitude",longitude)
     filevarattdef(fout,"rh",vout_rh)
 
     ; output variables
-    fout->lon = lon
-    fout->lat = lat
+    fout->longitude = longitude
+    fout->latitude = latitude
     fout->time = time
     fout->rh= vout_rh
 

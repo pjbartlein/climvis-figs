@@ -1,0 +1,28 @@
+ncpdq -O ERA5_uqvq_div_vint_monthly_199101-202012_ltm.nc  ERA5_uqvq_div_vint_monthly_199101-202012_ltm.nc
+ncpdq -O ERA5_uqvq_vint_monthly_199101-202012_ltm.nc         ERA5_uqvq_vint_monthly_199101-202012_ltm.nc
+ncpdq -O ERA5_uv_gpf_div_vint_monthly_199101-202012_ltm.nc  ERA5_uv_gpf_div_vint_monthly_199101-202012_ltm.nc
+ncpdq -O ERA5_uv_gpf_vint_monthly_199101-202012_ltm.nc  ERA5_uv_gpf_vint_monthly_199101-202012_ltm.nc
+ncpdq -O ERA5_uv_hf_div_vint_monthly_199101-202012_ltm.nc  ERA5_uv_hf_div_vint_monthly_199101-202012_ltm.nc
+ncpdq -O ERA5_uv_hf_vint_monthly_199101-202012_ltm.nc  ERA5_uv_hf_vint_monthly_199101-202012_ltm.nc
+ncpdq -O ERA5_uv_ke_div_vint_monthly_199101-202012_ltm.nc  ERA5_uv_ke_div_vint_monthly_199101-202012_ltm.nc
+ncpdq -O ERA5_uv_ke_vint_monthly_199101-202012_ltm.nc  ERA5_uv_ke_vint_monthly_199101-202012_ltm.nc
+ncpdq -O ERA5_uv_tef_div_vint_monthly_199101-202012_ltm.nc  ERA5_uv_tef_div_vint_monthly_199101-202012_ltm.nc
+ncpdq -O ERA5_uv_tef_vint_monthly_199101-202012_ltm.nc  ERA5_uv_tef_vint_monthly_199101-202012_ltm.nc
+ncpdq -O ERA5_vint_dse_monthly_197901-202012_ltm.nc  ERA5_vint_dse_monthly_197901-202012_ltm.nc
+ncpdq -O ERA5_vint_lse_monthly_197901-202012_ltm.nc  ERA5_vint_lse_monthly_197901-202012_ltm.nc
+ncpdq -O ERA5_vint_mse_monthly_197901-202012_ltm.nc  ERA5_vint_mse_monthly_197901-202012_ltm.nc
+
+
+ncatted -O -a _FillValue,,o,f,-32767 ERA5_uqvq_div_vint_monthly_199101-202012_ltm.nc
+ncatted -O -a _FillValue,,o,f,-32767 ERA5_uqvq_vint_monthly_199101-202012_ltm.nc
+ncatted -O -a _FillValue,,o,f,-32767 ERA5_uv_gpf_div_vint_monthly_199101-202012_ltm.nc
+ncatted -O -a _FillValue,,o,f,-32767 ERA5_uv_gpf_vint_monthly_199101-202012_ltm.nc
+ncatted -O -a _FillValue,,o,f,-32767 ERA5_uv_hf_div_vint_monthly_199101-202012_ltm.nc
+ncatted -O -a _FillValue,,o,f,-32767 ERA5_uv_hf_vint_monthly_199101-202012_ltm.nc
+ncatted -O -a _FillValue,,o,f,-32767 ERA5_uv_ke_div_vint_monthly_199101-202012_ltm.nc
+ncatted -O -a _FillValue,,o,f,-32767 ERA5_uv_ke_vint_monthly_199101-202012_ltm.nc
+ncatted -O -a _FillValue,,o,f,-32767 ERA5_uv_tef_div_vint_monthly_199101-202012_ltm.nc
+ncatted -O -a _FillValue,,o,f,-32767 ERA5_uv_tef_vint_monthly_199101-202012_ltm.nc
+ncatted -O -a _FillValue,,o,f,-32767 ERA5_vint_dse_monthly_197901-202012_ltm.nc
+ncatted -O -a _FillValue,,o,f,-32767 ERA5_vint_lse_monthly_197901-202012_ltm.nc
+ncatted -O -a _FillValue,,o,f,-32767 ERA5_vint_mse_monthly_197901-202012_ltm.nc

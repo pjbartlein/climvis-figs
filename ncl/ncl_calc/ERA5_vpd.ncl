@@ -1,14 +1,15 @@
 ; vapor-pressure deficit
+; pack variable when finished 
 
 begin 
 
-    inpath = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/climvis-figs/data/ERA5-Atm/monthly/"
+    inpath = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/Data/ERA5-Atm/monthly/"
     outpath = inpath
     print("    inpath: "+inpath)
     print("   outpath: "+outpath)
 
     ; input files
-    rhfile   = inpath + "ERA5_d2m_monthly_197901-202012.nc"
+    rhfile   = inpath + "ERA5_rh_monthly_197901-202012.nc"
     tasfile  = inpath + "ERA5_t2m_monthly_197901-202012.nc"
     print("    rhfile: "+rhfile)
     print("   tasfile: "+tasfile)
@@ -19,14 +20,14 @@ begin
 
     rh_in   = addfile(rhfile, "r" )
 
-    lon   = rh_in->longitude  
-    lat   = rh_in->latitude  
+    longitude   = rh_in->longitude  
+    latitude   = rh_in->latitude  
     time  = rh_in->time 
-    printVarSummary(lon)
-    printVarSummary(lat)
+    printVarSummary(longitude)
+    printVarSummary(latitude)
     printVarSummary(time)
 
-    rh = short2flt(rh_in->d2m)
+    rh = short2flt(rh_in->rh)
     printVarSummary(rh)
     printMinMax(rh, True)
 
@@ -83,20 +84,20 @@ begin
 
     filedimdef(fout,vout_dimNames,vout_dimSizes,dimUnlim) 
     filevardef(fout, "time", typeof(time), getvardims(time))
-    filevardef(fout, "lat", typeof(lat), getvardims(lat))
-    filevardef(fout, "lon", typeof(lon), getvardims(lon))
+    filevardef(fout, "latitude", typeof(latitude), getvardims(latitude))
+    filevardef(fout, "longitude", typeof(longitude), getvardims(longitude))
     filevardef(fout, "vpd", typeof(vout), getvardims(vout))
     setfileoption(fout,"DefineMode",True)
 
     ; variable attributes
     filevarattdef(fout,"time",time)
-    filevarattdef(fout,"lat",lat)
-    filevarattdef(fout,"lon",lon)
+    filevarattdef(fout,"latitude",latitude)
+    filevarattdef(fout,"longitude",longitude)
     filevarattdef(fout,"vpd",vout_vpd)
 
     ; output variables
-    fout->lon = lon
-    fout->lat = lat
+    fout->longitude = longitude
+    fout->latitude = latitude
     fout->time = time
     fout->vpd= vout_vpd
 

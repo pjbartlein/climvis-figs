@@ -528,6 +528,7 @@ cdo ymonmean ERA5_d2m_monthly_199101-202012.nc ERA5_d2m_monthly_199101-202012_lt
 cdo -b F64 sub ERA5_d2m_monthly_197901-202012.nc ERA5_d2m_monthly_199101-202012_ltm.nc ERA5_d2m_monthly_197901-202012_anm1991-2020.nc
 ncpdq -O ERA5_d2m_monthly_197901-202012_anm1991-2020.nc ERA5_d2m_monthly_197901-202012_anm1991-2020.nc 
 
+ncpdq -O ERA5_rh_monthly_197901-202012_flt.nc ERA5_rh_monthly_197901-202012.nc 
 cdo selyear,1981/2010 ERA5_rh_monthly_197901-202012.nc ERA5_rh_monthly_198101-201012.nc
 cdo ymonmean ERA5_rh_monthly_198101-201012.nc ERA5_rh_monthly_198101-201012_ltm.nc
 cdo -b F64 sub ERA5_rh_monthly_197901-202012.nc ERA5_rh_monthly_198101-201012_ltm.nc ERA5_rh_monthly_197901-202012_anm1981-2010.nc
@@ -538,6 +539,7 @@ cdo ymonmean ERA5_rh_monthly_199101-202012.nc ERA5_rh_monthly_199101-202012_ltm.
 cdo -b F64 sub ERA5_rh_monthly_197901-202012.nc ERA5_rh_monthly_199101-202012_ltm.nc ERA5_rh_monthly_197901-202012_anm1991-2020.nc
 ncpdq -O ERA5_rh_monthly_197901-202012_anm1991-2020.nc ERA5_rh_monthly_197901-202012_anm1991-2020.nc 
 
+ncpdq -O ERA5_vpd_monthly_197901-202012_flt.nc ERA5_vpd_monthly_197901-202012.nc 
 cdo selyear,1981/2010 ERA5_vpd_monthly_197901-202012.nc ERA5_vpd_monthly_198101-201012.nc
 cdo ymonmean ERA5_vpd_monthly_198101-201012.nc ERA5_vpd_monthly_198101-201012_ltm.nc
 cdo -b F64 sub ERA5_vpd_monthly_197901-202012.nc ERA5_vpd_monthly_198101-201012_ltm.nc ERA5_vpd_monthly_197901-202012_anm1981-2010.nc
