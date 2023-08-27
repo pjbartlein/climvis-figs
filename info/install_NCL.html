@@ -1,308 +1,93 @@
-<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><style type="text/css">/*
-  Github style for nvUltra by Brett Terpstra and Fletcher Penney
-*/
-body {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-  font-size: 16px;
-  line-height: 1.5;
-  word-wrap: break-word;
-  padding: 50px !important;
-  margin: 10px `0px;
-  border: 1px solid #ccc;
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><style type="text/css">body, td {
+   font-family: Times, TimesNewRoman, serif;
+   background-color: white;
+   font-size: 11pt;
+   margin: 40px;
+   width:  720px;
+   text-align:justify;
 }
 
-body:before {
-  content: "";
-  display: table
-}
-
-body:after {
-  content: "";
-  display: table
-}
-
-body>:first-child {
-  margin-top: 0 !important
-}
-
-body>:last-child {
-  margin-bottom: 0 !important
-}
-
-a:not([href]) {
-  color: inherit;
-  text-decoration: none
-}
-
-a {
-  color: #0366d6;
-  text-decoration: none;
-}
-
-a:active, a:hover {
-  outline-width: 0;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-blockquote, details, dl, ol, p, pre, table, ul {
-  margin-bottom: 16px;
-  margin-top: 0
-}
-
-hr {
-  background-color: #e1e4e8;
-  border: 0;
-  height: .25em;
-  margin: 24px 0;
-  padding: 0
-}
-
-blockquote {
-  border-left: .25em solid #dfe2e5;
-  color: #6a737d;
-  padding: 0 1em
-}
-
-blockquote>:first-child {
-  margin-top: 0
-}
-
-blockquote>:last-child {
-  margin-bottom: 0
-}
-
-kbd {
-  background-color: #fafbfc;
-  border: 1px solid #c6cbd1;
-  border-bottom-color: #959da5;
-  border-radius: 3px;
-  box-shadow: inset 0 -1px 0 #959da5;
-  color: #444d56;
-  display: inline-block;
-  font-size: 11px;
-  line-height: 10px;
-  padding: 3px 5px;
-  vertical-align: middle
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
-  line-height: 1.25;
-  margin-bottom: 16px;
-  margin-top: 24px
-}
-
-h1:hover .anchor .octicon-link, h2:hover .anchor .octicon-link, h3:hover .anchor .octicon-link, h4:hover .anchor .octicon-link, h5:hover .anchor .octicon-link, h6:hover .anchor .octicon-link {
-  visibility: visible
-}
-
-h1 code, h1 tt, h2 code, h2 tt, h3 code, h3 tt, h4 code, h4 tt, h5 code, h5 tt, h6 code, h6 tt {
-  font-size: inherit
+tt, code, pre {
+   font-family: Consolas, Monaco, monospace;
+   font-size: 10pt;
+   font-weight: bolder;
 }
 
 h1 {
-  font-size: 2em
-}
-
-h1, h2 {
-  border-bottom: 1px solid #eaecef;
-  padding-bottom: .3em
+   font-family: Hevetica, Arial, sans-serif;
+   font-size:16pt;
+   font-weight: normal;
 }
 
 h2 {
-  font-size: 1.5em
+   font-size:16pt;
+   font-weight: normal;
 }
 
 h3 {
-  font-size: 1.25em
+   font-size:14pt;
+   font-weight: normal;
 }
 
 h4 {
-  font-size: 1em
+   font-size:14pt;
+   font-weight: normal;
+   font-style: italic;
 }
 
 h5 {
-  font-size: .875em
+   font-size:12pt;
+   font-weight: normal;
 }
 
 h6 {
-  color: #6a737d;
-  font-size: .85em
+   font-size:12pt;
+   font-weight: normal;
+   font-style: italic;
 }
 
-ol, ul {
-  padding-left: 2em
+a:visited {
+   color: rgb(50%, 0%, 50%);
 }
 
-ol ol, ol ul, ul ol, ul ul {
-  margin-bottom: 0;
-  margin-top: 0
+pre { 
+   margin-top: 0;
+   max-width: 100%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
 }
 
-li {
-  word-wrap: break-all
+pre code {
+   display: block; padding: 0.5em;
+   background-color:  #E0E0E0;
 }
 
-li>p {
-  margin-top: 16px
+code.r, code.noeval, code.cpp {
+   background-color: #eeeeee;
 }
 
-li+li {
-  margin-top: .25em
+table, td, th {
+  border: none;
 }
 
-dl {
-  padding: 0
+blockquote {
+   color:#000000;
+   margin:0;
+   padding-left: 1em;
+   padding-right: 1em;
+   border-left: 0.5em #E0E0E0 solid;
+   border-right: 0.5em #E0E0E0 solid
 }
 
-dl dt {
-  font-size: 1em;
-  font-style: italic;
-  font-weight: 600;
-  margin-top: 16px;
-  padding: 0
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
 }
 
-dl dd {
-  margin-bottom: 16px;
-  padding: 0 16px
-}
 
-table {
-  display: block;
-  overflow: auto;
-  width: 100%
-}
-
-table th {
-  font-weight: 600
-}
-
-table td, table th {
-  border: 1px solid #dfe2e5;
-  padding: 6px 13px
-}
-
-table tr {
-  background-color: #fff;
-  border-top: 1px solid #c6cbd1
-}
-
-table tr:nth-child(2n) {
-  background-color: #f6f8fa
-}
-
-table img {
-  background-color: transparent
-}
-
-img {
-  background-color: #fff;
-  box-sizing: content-box;
-  max-width: 100%
-}
-
-img[align=right] {
-  padding-left: 20px
-}
-
-img[align=left] {
-  padding-right: 20px
-}
-
-.emoji {
-  background-color: transparent;
-  max-width: none;
-  vertical-align: text-top
-}
-
-code, tt {
-  background-color: rgba(27, 31, 35, .05);
-  border-radius: 3px;
-  font-size: 85%;
-  margin: 0;
-  padding: .2em .4em
-}
-
-code br, tt br {
-  display: none
-}
-
-del code {
-  text-decoration: inherit
-}
-
-pre {
-  word-wrap: normal
-}
-
-pre>code {
-  background: transparent;
-  border: 0;
-  font-size: 100%;
-  margin: 0;
-  padding: 0;
-  white-space: pre;
-  word-break: normal
-}
-
-.highlight {
-  margin-bottom: 16px
-}
-
-.highlight pre {
-  margin-bottom: 0;
-  word-break: normal
-}
-
-.highlight pre, pre {
-  background-color: #f6f8fa;
-  border-radius: 3px;
-  font-size: 85%;
-  line-height: 1.45;
-  overflow: auto;
-  padding: 16px
-}
-
-pre code, pre tt {
-  background-color: transparent;
-  border: 0;
-  display: inline;
-  line-height: inherit;
-  margin: 0;
-  max-width: auto;
-  overflow: visible;
-  padding: 0;
-  word-wrap: normal
-}
-
-/*
-  CriticMarkup CSS by Fletcher T. Penney
-
-  Shows CSS tricks to improve visibility of CriticMarkup output
-*/
-del {
-  background: #fae6e6;
-}
-
-ins {
-  background: #ecfce6;
-}
-
-span.critic.comment {
-  color: #0000bb;
-}
-
-span.critic.comment::before {
-  content: "{>> ";
-}
-
-span.critic.comment::after {
-  content: " <<}";
-}
 </style>
 </head><body><h1 id="installncl6.6.2onmacos">Install NCL (6.6.2) on MacOS</h1>
 
@@ -323,12 +108,18 @@ span.critic.comment::after {
 
 <h3 id="extractfiles">Extract files</h3>
 
-<p>On recent versions of macOS, making a destination folder for the binary e.g. <code>/usr/local/ncl-6.6.2</code> may fail if attempted in a Terminal window (owing to the System Integrity Protection (SIP) thing in macOS), producing the following error: <code>mkdir: /usr/local/ncl-6.6.2: Permission denied</code>.</p>
+<p>Create a new folder: <code>/usr/local/ncl-6.6.2</code> by opening a Terminal window and entering <code>mkdir /usr/local/ncl-6.6.2</code>. On recent versions of macOS, making a destination folder for the binary may fail if attempted in a Terminal window (owing to the System Integrity Protection (SIP) thing in macOS), producing the following error: <code>mkdir: /usr/local/ncl-6.6.2: Permission denied</code>.</p>
 
 <p>The workaround is to use Finder to create the folder <code>/usr/local/ncl-6.6.2</code>, which will require authentication, and then do this (copy and paste to a Terminal window):</p>
 
 <pre><code>cd /usr/local
 sudo chown -R $(whoami):staff *
+</code></pre>
+
+<p>Note: Finder can be made to show hidden files files and folders by typing in a Terminal window:</p>
+
+<pre><code>defaults write com.apple.finder AppleShowAllFiles TRUE
+killall Finder
 </code></pre>
 
 <p>The NCL page indicates that the following approach will work for installing NCL:</p>
@@ -340,16 +131,18 @@ sudo chown -R $(whoami):staff *
 
 <h3 id="setenvironment">Set environment</h3>
 
-<p>Edit e.g. <code>/Users/bartlein/.zshenv</code> (used to be <code>/Users/bartlein/.bash_profile</code> before Catalina)</p>
+<p>Setting the environment has been troublesome. On macOS Catalina, zsh has replaced bash as the default shell, and there seem to be no specific instructions for how to edit the environment files. However, the following seems to work (for the Catalina and newer versions of MacOS:</p>
 
-<pre><code># NCL Setting  
-export NCARG_ROOT=/usr/local/ncl-6.6.2  
+<p>Edit or create the file <code>/Users/bartlein/.zshenv</code> (used to be <code>/Users/bartlein/.bash_profile</code> before Catalina)</p>
+
+<pre><code>export NCARG_ROOT=/usr/local/ncl-6.6.2  
 export PATH=$NCARG_ROOT/bin:$PATH  
 export LD_LIBRARY_PATH=&quot;${NCARG_ROOT}/lib:{LD_LIBRARY_PATH}&quot;  
 ulimit -s  unlimited
 </code></pre>
 
-<p>On macOS Catalina, zsh has replaced bash as the default shell. If you&#8217;re running Catalina, put the contents above in in a file named <code>.zshenv</code> as opposed to <code>.bash_profile</code>.</p>
+<p>NOTE: You must logout, and log back in for this to take effect.
+If you&#8217;re running Catalina, put the contents above in in a file named <code>.zshenv</code> as opposed to <code>.bash_profile</code>.</p>
 
 <h3 id="installgccandgfortran">Install gcc and gfortran</h3>
 
@@ -361,6 +154,7 @@ ulimit -s  unlimited
 <ul>
 <li>download <code>gcc-7.3-bin.tar.gz</code></li>
 <li>cd to the <code>Downloads</code> folder. Then</li>
+<li>open a Terminal window, and, while remaining in the <code>Downloads</code> folder, type</li>
 <li><code>gunzip gcc-7.3-bin.tar.gz</code> (if your browser didn&#8217;t do so already) and then type</li>
 <li><code>sudo tar -xvf gcc-7.3-bin.tar -C /</code>.</li>
 <li>Copy additional colormaps to <code>/usr/local/ncl-6.6.2/lib/ncarg/colormaps</code></li>
@@ -398,7 +192,18 @@ eval &quot;$(/opt/homebrew/bin/brew shellenv)&quot;
 
 <p>The path (displayed by typing <code>echo $PATH</code>) should look like:</p>
 
-<p>9/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/ncl-6.6.2/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/ncl-6.6.2/bin</p>
+<blockquote>
+<p>/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/ncl-6.6.2/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/ncl-6.6.2/bin</p>
+</blockquote>
+
+<p>It has sometimes been necessary to add an additional environment file to the user home directory. Create the file <code>.zprofile</code> with the contents:</p>
+
+<pre><code>export NCARG_ROOT=/usr/local/ncl-6.6.2  
+export PATH=$NCARG_ROOT/bin:$PATH  
+export LD_LIBRARY_PATH=&quot;${NCARG_ROOT}/lib:{LD_LIBRARY_PATH}&quot;  
+ulimit -s  unlimited
+eval $(/opt/homebrew/bin/brew shellenv)
+</code></pre>
 
 <p>If already installed, update Homebrew (see <a href="https://github.com/Homebrew/brew/blob/master/docs/FAQ.md">https://github.com/Homebrew/brew/blob/master/docs/FAQ.md</a>):</p>
 
@@ -409,7 +214,7 @@ brew cleanup
 
 <h3 id="installnetcdf">Install netCDF</h3>
 
-<p>See <a href="https://formulae.brew.sh/formula/netcdf">https://formulae.brew.sh/formula/netcdf</a>. At the time of this writing, the current version was <code>4.8.0</code> (10 Sep 2021).</p>
+<p>See <a href="https://formulae.brew.sh/formula/netcdf">https://formulae.brew.sh/formula/netcdf</a>. At the time of this writing (27 Aug 2023), the current version was <code>4.9.2</code>.</p>
 
 <pre><code>brew install netcdf
 </code></pre>
@@ -423,7 +228,7 @@ brew cleanup
 
 <p>If the currently installed version is the most recent one, you’ll get an error like:</p>
 
-<pre><code>Warning: netcdf 4.9.0 is already installed and up-to-date.
+<pre><code>Warning: netcdf 4.9.2 is already installed and up-to-date.
 </code></pre>
 
 <p>Check to see if netCDF has been installed:</p>
@@ -431,25 +236,25 @@ brew cleanup
 <pre><code>ncdump
 </code></pre>
 
-<p>The last line of the response should return the current version; here it&#8217;s <code>4.9.0</code></p>
+<p>The last line of the response should return the current version; here it&#8217;s <code>4.9.2</code></p>
 
-<p>Make a shortcut for getting a headers-only <code>ncdump</code> of a netCDF file. First, find the exact folder in which netCDF was installed, something like: <code>/opt/homebrew/Cellar/netcdf/4.9.0/</code>. .</p>
+<p>Make a shortcut for getting a headers-only <code>ncdump</code> of a netCDF file. First, find the exact folder in which netCDF was installed, something like: <code>/opt/homebrew/Cellar/netcdf/4.9.2_1/</code>. (4.9.2 is the version of netCDF, and &#8220;_1&#8221; indicates that it&#8217;s the first revised Homebrew version.) You will probably have to to this by hand.</p>
 
 <p>Create a file simply called <code>ncd</code> (no extension) containing:</p>
 
 <pre><code>#! /bin/bash
 pwd
-/opt/homebrew/Cellar/netcdf/4.9.0/bin/ncdump -c $1
+/opt/homebrew/Cellar/netcdf/4.9.0_1/bin/ncdump -c $1
 </code></pre>
 
-<p>Copy or move this file to <code>/usr/local/bin/</code> (Note that the specific reference to the netCDF library version (<code>4.9.0</code>) will have to be edited to match the current version of netCDF when netCDF is upgraded.)</p>
+<p>Copy or move this file to <code>/usr/local/bin/</code> (Note that the specific reference to the netCDF library version (<code>4.9.2_1</code>) will have to be edited to match the current version of netCDF when netCDF is upgraded.)</p>
 
 <p>Make the file executable:</p>
 
 <pre><code>sudo chmod +x ncd
 </code></pre>
 
-<p>Then typing, e.g. <code>ncd myfile.nc</code> in a Terminal window will <code>ncdump</code> the headers (attributes, etc.) and coordinate variable information.</p>
+<p>Then typing, e.g. <code>ncd myfile.nc</code> in a Terminal window will <code>ncdump</code> the headers (attributes, etc.) and coordinate variable information (lon, lat, time).</p>
 
 <h3 id="cdo">CDO</h3>
 
@@ -482,6 +287,24 @@ pwd
 <p>Check the installation (note that there are two hyphens before &#8220;version&#8221;):</p>
 
 <pre><code>ncatted --version 
+</code></pre>
+
+<p>Note the double hyphen, and that it&#8217;s one of the individuals command-line tools in NCO that is being queried for its version number. NCO can be updated as follows:</p>
+
+<pre><code>brew update eco
+</code></pre>
+
+<h3 id="panoply">Panoply</h3>
+
+<p>Panoply is a handy viewer for netCDF files (and also a good check that a new file conforms to common standards like the Climate Forecast (CF) standards). It can be downloaded from:</p>
+
+<pre><code>&lt;https://www.giss.nasa.gov/tools/panoply/&gt;
+</code></pre>
+
+<p>If Panoply pops up a dialog saying that a Java environment must be installed, one can be obtained at Oracle. Here are the instructions, and the download page (as of 26 Feb 2023):</p>
+
+<pre><code>&lt;https://docs.oracle.com/en/java/javase/11/install/installation-jdk-macos.html&gt;
+&lt;https://www.oracle.com/java/technologies/downloads/#jdk19-mac&gt;
 </code></pre>
 
 <p>`</p>

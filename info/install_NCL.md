@@ -35,15 +35,17 @@ If the `.tar` file didn't get decompressed (i.e. it ends in `.gz`) add `.gz` to 
     
 ### Set environment
 
-Edit e.g. `/Users/bartlein/.zshenv` (used to be `/Users/bartlein/.bash_profile` before Catalina)
+Setting the environment has been troublesome.  On macOS Catalina, zsh has replaced bash as the default shell, and there seem to be no specific instructions for how to edit the environment files.  However, the following seems to work (for the Catalina and newer versions of MacOS:
 
-	# NCL Setting  
+Edit or create the file `/Users/bartlein/.zshenv` (used to be `/Users/bartlein/.bash_profile` before Catalina)
+
 	export NCARG_ROOT=/usr/local/ncl-6.6.2  
 	export PATH=$NCARG_ROOT/bin:$PATH  
 	export LD_LIBRARY_PATH="${NCARG_ROOT}/lib:{LD_LIBRARY_PATH}"  
 	ulimit -s  unlimited
 
-On macOS Catalina, zsh has replaced bash as the default shell.  If you're running Catalina, put the contents above in in a file named `.zshenv` as opposed to `.bash_profile`.
+NOTE:  You must logout, and log back in for this to take effect.
+If you're running Catalina, put the contents above in in a file named `.zshenv` as opposed to `.bash_profile`.
 
 
 ### Install gcc and gfortran
@@ -55,11 +57,13 @@ These are the instructions for installing on an **Intel Mac running Big Sur**, b
 
 - download `gcc-7.3-bin.tar.gz`
 - cd to the `Downloads` folder. Then 
+- open a Terminal window, and, while remaining in the `Downloads` folder, type
 - `gunzip gcc-7.3-bin.tar.gz` (if your browser didn't do so already) and then type 
 - `sudo tar -xvf gcc-7.3-bin.tar -C /`.
 - Copy additional colormaps to `/usr/local/ncl-6.6.2/lib/ncarg/colormaps`
 
 Note:  Sometimes this will corrupt an installation of `gcc` (and `gfortran`) and `netCDF` from Homebrew.  If so, reinstall `gcc` and `netcdf` from Homebrew.
+
 
 ### Test the installation
 
@@ -90,15 +94,24 @@ The path (displayed by typing `echo $PATH`) should look like:
 
 >/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/ncl-6.6.2/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/ncl-6.6.2/bin
 
+It has sometimes been necessary to add an additional environment file to the user home directory.  Create the file `.zprofile` with the contents:
+	
+	export NCARG_ROOT=/usr/local/ncl-6.6.2  
+	export PATH=$NCARG_ROOT/bin:$PATH  
+	export LD_LIBRARY_PATH="${NCARG_ROOT}/lib:{LD_LIBRARY_PATH}"  
+	ulimit -s  unlimited
+	eval $(/opt/homebrew/bin/brew shellenv)
+
 If already installed, update Homebrew  (see [https://github.com/Homebrew/brew/blob/master/docs/FAQ.md](https://github.com/Homebrew/brew/blob/master/docs/FAQ.md)): 
 
 	brew update
 	brew upgrade
 	brew cleanup
 	
+
 ### Install netCDF ###
 
-See [https://formulae.brew.sh/formula/netcdf](https://formulae.brew.sh/formula/netcdf).  At the time of this writing, the current version was `4.9.0` (21 Feb 2023).
+See [https://formulae.brew.sh/formula/netcdf](https://formulae.brew.sh/formula/netcdf).  At the time of this writing (27 Aug 2023), the current version was `4.9.2`.
 
 	brew install netcdf
  
@@ -110,23 +123,23 @@ If netCDF is already installed, try upgrading:
 
 If the currently installed version is the most recent one, you’ll get an error like:
 
-	Warning: netcdf 4.9.0 is already installed and up-to-date.
+	Warning: netcdf 4.9.2 is already installed and up-to-date.
 	
 Check to see if netCDF has been installed:
 
 	ncdump
 
-The last line of the response should return the current version; here it's `4.9.0`
+The last line of the response should return the current version; here it's `4.9.2`
 
-Make a shortcut for getting a headers-only `ncdump` of a netCDF file.  First, find the exact folder in which netCDF was installed, something like: `/opt/homebrew/Cellar/netcdf/4.9.0/`. .
+Make a shortcut for getting a headers-only `ncdump` of a netCDF file.  First, find the exact folder in which netCDF was installed, something like: `/opt/homebrew/Cellar/netcdf/4.9.2_1/`.  (4.9.2 is the version of netCDF, and "_1" indicates that it's the first revised Homebrew version.) You will probably have to to this by hand.
 
 Create a file simply called `ncd` (no extension) containing:
 
 	#! /bin/bash
 	pwd
-	/opt/homebrew/Cellar/netcdf/4.9.0/bin/ncdump -c $1
+	/opt/homebrew/Cellar/netcdf/4.9.0_1/bin/ncdump -c $1
 
-Copy or move this file to `/usr/local/bin/`  (Note that the specific reference to the netCDF library version (`4.9.0`) will have to be edited to match the current version of netCDF when netCDF is upgraded.)
+Copy or move this file to `/usr/local/bin/`  (Note that the specific reference to the netCDF library version (`4.9.2_1`) will have to be edited to match the current version of netCDF when netCDF is upgraded.)
 
 Make the file executable: 
 
