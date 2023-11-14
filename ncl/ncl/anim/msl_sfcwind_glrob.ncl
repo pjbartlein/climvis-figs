@@ -125,12 +125,12 @@ res@vcRefAnnoPerimOn = False ; "True"
 res@vcRefAnnoBackgroundColor = "white" ; gray95
 ; res@vcLabelBarEndLabelsOn = "True"
 
-; label bar --------------------------------------------------------------------
-res@lbLabelBarOn            = True            
-res@pmLabelBarHeightF       = 0.04
-res@lbLabelFontHeightF      = 0.00625
-res@pmLabelBarOrthogonalPosF= -.001
-res@lbBoxLineThicknessF     = 2
+; ; label bar --------------------------------------------------------------------
+; res@lbLabelBarOn            = True            
+; res@pmLabelBarHeightF       = 0.04
+; res@lbLabelFontHeightF      = 0.00625
+; res@pmLabelBarOrthogonalPosF= -.001
+; res@lbBoxLineThicknessF     = 2
   
 res@gsnSpreadColorStart     = level0_begclr
 res@gsnSpreadColorEnd       = level0_endclr 

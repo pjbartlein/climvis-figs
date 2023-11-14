@@ -1,6 +1,8 @@
 ; 12-panel maps of monthly data 
 
 mapvar = "t2m"
+panel_type = "12mon"
+
 ; cd up to /climvis-figs, then into /data/ERA5-Atm/ltm_monthly/ 
 data_path = "../../../data/ERA5-Atm/ltm_monthly/"  
 map_path = "../../../content/maps/ltm/global/" + mapvar + "_globe_1991-2020_ltm_"
@@ -54,7 +56,7 @@ wks_type = "png"
 wks_type@wkWidth = 1200
 wks_type@wkHeight = 1200
 
-wks  = gsn_open_wks (wks_type, map_path + mapvar)
+wks  = gsn_open_wks (wks_type, map_path + panel_type)
 ; drawNDCGrid(wks)               ; Draw an NDC grid for reference.
 
 ; plot panels
