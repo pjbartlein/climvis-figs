@@ -56,7 +56,7 @@ wks_type@wkWidth = 1200
 wks_type@wkHeight = 1200
 
 wks  = gsn_open_wks (wks_type, map_path)
-drawNDCGrid(wks)               ; Draw an NDC grid for reference.
+; drawNDCGrid(wks)               ; Draw an NDC grid for reference.
 
 ; plot panels
 plot = new(12,graphic)
