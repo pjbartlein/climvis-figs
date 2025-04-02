@@ -1,26 +1,26 @@
 ; 1-up plot of a scalar variable
 
-mapvar = "skt"
-data_path = "../../data/ERA5-Atm/ltm_monthly/"
-map_path = "../../content/anim/ltm/globe/" + mapvar + "_globe_1991-2020_ltm/png/"
-title_0 = "Skin Temperature (~S~o~N~C~N~)"
+mapvar = "t2m"
+data_path = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/data/ERA5-Atm/ltm_monthly/"
+map_path = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/maps/global/" + mapvar + "_globe_1991-2020_ltm/png/"
+title_0 = "2 m Air Temperature (~S~o~N~C~N~)"
 title_2 = "Data: ERA5 Reanalysis"
 title_3 = "1991-2020 Long-Term Mean"
 
 infile = "ERA5_" + mapvar + "_monthly_199101-202012_ltm.nc"
 
 ; shapefiles
-land_dir = "../../shp_files/ERA5-Atm_land/"
+land_dir = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/shp_files/"
 land_file = "ERA5-Atm_land.shp"
 land_shp = land_dir + land_file
 print(land_shp)
-country_dir = "../../shp_files/ne_110m_admin_0_countries/"
+country_dir = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/shp_files/ne_110m_admin_0_countries/"
 country_file = "ne_110m_admin_0_countries.shp"
 country_shp = country_dir + country_file
 print(country_shp)
 
 ; set color scale
-clr_map = "ClimA8"
+clr_map = "ClimA7"
 
 nm = 12
 months = (/"Jan", "Feb", "Mar", "Apr","May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov","Dec" /)
@@ -145,7 +145,7 @@ do m = 0,nm-1
     wks_type@wkHeight = 1200
 
     monthstring  = sprinti("%0.2i", m+1)
-    mapfile = mapvar + "_globe_1991-2020_ltm_" + monthstring
+    mapfile = mapvar + "_gl_" + monthstring
     wks  = gsn_open_wks (wks_type, map_path + mapfile)
     gsn_define_colormap(wks,clr_map)
     ; drawNDCGrid(wks)                   ; Draw an NDC grid for reference

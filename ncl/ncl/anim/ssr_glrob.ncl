@@ -3,8 +3,8 @@
 mapfile = "ssr_globe_1991-2020_ltm"
 ncvar = "ssr"
 mapvar = "ssr"
-data_path = "../../data/ERA5-Atm/ltm_monthly/"
-map_path = "../../content/anim/ltm/globe/" + mapfile + "/png/"
+data_path = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/data/ERA5-Atm/ltm_monthly/"
+map_path = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/maps/globe/" + mapfile + "/png/"
 title_0 = "Net Shortwave Radiation at Surface (Wm~S~-2~N~)"
 title_2 = "Data: ERA5 Reanalysis"
 title_3 = "1991-2020 Long-Term Mean"
@@ -12,11 +12,11 @@ title_3 = "1991-2020 Long-Term Mean"
 infile = "ERA5_" + mapvar + "_monthly_199101-202012_ltm.nc"
 
 ; shapefiles
-land_dir = "../../shp_files/"
+land_dir = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/shp_files/"
 land_file = "ERA5-Atm_land.shp"
 land_shp = land_dir + land_file
 print(land_shp)
-country_dir = "../../shp_files/ne_110m_admin_0_countries/"
+country_dir = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/shp_files/ne_110m_admin_0_countries/"
 country_file = "ne_110m_admin_0_countries.shp"
 country_shp = country_dir + country_file
 print(country_shp)

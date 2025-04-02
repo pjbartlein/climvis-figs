@@ -110,6 +110,13 @@ ncrename -v t2m,t2m-skt ERA5_t2m-skt_monthly_197901-202012.nc
 ncatted -a long_name,t2m-skt,o,c,"2m Air Temp - Skin Temp" ERA5_t2m-skt_monthly_197901-202012.nc
 ncatted -a standard_name,t2m-skt,o,c,"T2m-TS" ERA5_t2m-skt_monthly_197901-202012.nc
 
+# net radiation ERA5-Land
+cdo -b F64 add ERA5-Land_ssr_monthly_195001-202112.nc ERA5-Land_str_monthly_195001-202112.nc ERA5-Land_snr_monthly_195001-202112.nc 
+ncpdq -O ERA5-Land_snr_monthly_195001-202112.nc ERA5-Land_snr_monthly_195001-202112.nc
+ncrename -v ssr,snr ERA5-Land_snr_monthly_195001-202112.nc
+ncatted -a long_name,snr,o,c,"Surface Net Radiation" ERA5-Land_snr_monthly_195001-202112.nc
+ncatted -a standard_name,snr,o,c,"surface_net_radiation" ERA5-Land_snr_monthly_195001-202112.nc
+
 
 
 add Add two fields

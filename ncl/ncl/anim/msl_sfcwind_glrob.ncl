@@ -7,8 +7,8 @@ umapvar = "u10"
 vmapvar = "v10"
 uvecvar = "u10"
 vvecvar = "v10"
-data_path = "../../data/ERA5-Atm/ltm_monthly/"
-map_path = "../../content/anim/ltm/globe/" + mapfile + "/png/"
+data_path = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/data/ERA5-Atm/ltm_monthly/"
+map_path = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/maps/globe/" + mapfile + "/png/"
 title_0 = "Mean Sea-Level Pressure (hPa) & 10 m Winds (m s~S~-1~N~)"
 title_2 = "Data: ERA5 Reanalysis"
 title_3 = "1991-2020 Long-Term Mean"
@@ -18,11 +18,11 @@ uinfile = "ERA5_" + uvecvar + "_monthly_199101-202012_ltm.nc"
 vinfile = "ERA5_" + vvecvar + "_monthly_199101-202012_ltm.nc"
 
 ; shapefiles
-land_dir = "../../shp_files/"
+land_dir = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/shp_files/"
 land_file = "ERA5-Atm_land.shp"
 land_shp = land_dir + land_file
 print(land_shp)
-country_dir = "../../shp_files/ne_110m_admin_0_countries/"
+country_dir = "/Users/bartlein/Dropbox/WorkCurrent/ERA5/shp_files/ne_110m_admin_0_countries/"
 country_file = "ne_110m_admin_0_countries.shp"
 country_shp = country_dir + country_file
 print(country_shp)
@@ -125,12 +125,12 @@ res@vcRefAnnoPerimOn = False ; "True"
 res@vcRefAnnoBackgroundColor = "white" ; gray95
 ; res@vcLabelBarEndLabelsOn = "True"
 
-; ; label bar --------------------------------------------------------------------
-; res@lbLabelBarOn            = True            
-; res@pmLabelBarHeightF       = 0.04
-; res@lbLabelFontHeightF      = 0.00625
-; res@pmLabelBarOrthogonalPosF= -.001
-; res@lbBoxLineThicknessF     = 2
+; label bar --------------------------------------------------------------------
+res@lbLabelBarOn            = True            
+res@pmLabelBarHeightF       = 0.04
+res@lbLabelFontHeightF      = 0.00625
+res@pmLabelBarOrthogonalPosF= -.001
+res@lbBoxLineThicknessF     = 2
   
 res@gsnSpreadColorStart     = level0_begclr
 res@gsnSpreadColorEnd       = level0_endclr 
